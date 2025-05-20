@@ -189,11 +189,11 @@ The system instantiates the processor, main memory, and the kernel. These subcom
 4. **`roiFlag()`**: A function to return whether the tick/cycle is considered to be within a region-of-interest (ROI) segment of the execution. The function is often a pass-through to the same interface funtion in the processor object.
 5. **`instCompletionFlag()`**: A function to return whether an instruction was completed/committed in a given cycle/tick. The function is often a pass-through to the same interface funtion in the processor object.
 
-The default class included in pyArchSim is "`pyArchSimLib.systen.BasicSystem`". The default class instantiates two default classes for the process and main memory: "`pyArchSimLib.proc.FiveStageInorderProcessor`" and "`pyArch.mem.main.SimpleMultiportedMemory`", respectively.
+The default class included in pyArchSim is "`pyArchSimLib.systen.BasicSystem`". The default class instantiates two default classes for the processor and main memory: "`pyArchSimLib.proc.FiveStageInorderProcessor`" and "`pyArch.mem.main.SimpleMultiportedMemory`", respectively.
 
 #### 2.2.1 Processor
 
-The processor instantiates the core and uncore. The core handles the execution of the instructions. Most of the interfaces from the system object are forwarded to the processor, which in-turn forwards them to the core. The uncore contains the caches. In actuality, level-1 caches are part of the core, since the timing is often tightly coupled with the pipeline. However, from a modeling perspective, there is no harm in separating level-1 caches and the core. The process must implement the following interfaces:
+The processor instantiates the core and uncore. The core handles the execution of the instructions. Most of the interfaces from the system object are forwarded to the processor, which in-turn forwards them to the core. The uncore contains the caches. In actuality, level-1 caches are part of the core, since the timing is often tightly coupled with the pipeline. However, from a modeling perspective, there is no harm in separating level-1 caches and the core. The processor must implement the following interfaces:
 
 1. **`getExitStatus()`**: This function returns a tuple of a Boolean value and an exit status code. This function is invoked by the simulator every tick/cycle to indicate whether the simulation must be terminated and with what exit status code. The function is often a pass-through to the same interface funtion in the core object.
 2. **`roiFlag()`**: A function to return whether the tick/cycle is considered to be within a region-of-interest (ROI) segment of the execution. The function is often a pass-through to the same interface funtion in the core object.
@@ -268,7 +268,7 @@ The default class for pyArchSim is "`pyArchSimLib.mem.cache.NoCache`". The defau
 
 #### 2.2.2 Main Memory
 
-The main memory receives read or write requests and process them according to the hardware modeled. Then, the interface is leveraged to implement a valid-ready protocol through function calls. The following interfacing functions must be implemented:
+The main memory receives read and write requests; the main memory processes them according to the hardware it models. The main memory model interface is leveraged to implement a valid-ready protocol through function calls. The following interfacing functions must be implemented:
 
 1. **`canReq(port_id)`**: A function to return whether the main memory can accept an incoming memory request for either a read or a write.
 2. **`sendReq(port_id, req)`**: A function to receive a memory request from a requester.
