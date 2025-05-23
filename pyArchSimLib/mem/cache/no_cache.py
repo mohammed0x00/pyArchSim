@@ -40,4 +40,4 @@ class NoCache():
 
   # Nothing happens
   def linetrace(s):
-    return ''
+    return 7 * ' '

@@ -85,9 +85,9 @@ roi_num_insts = 0
 
 # Print header
 # hawajkm: we need a better way to do this
-top = '+----------+------------+----------+----------+----------+----------+----------+-----+\n'
-mid = '| Cycle    | Fetch      | Decode   | Execute  | Memory   | Complete |          | Mem |\n'
-bot = '+----------+------------+----------+----------+----------+----------+----------+-----+\n'
+top = '+----------+------------+----------+----------+----------+----------+---------+---------+----------+-----+\n'
+mid = '| Cycle    | Fetch      | Decode   | Execute  | Memory   | Complete | I-Cache | D-Cache |          | Mem |\n'
+bot = '+----------+------------+----------+----------+----------+----------+---------+---------+----------+-----+\n'
 
 if ltEnable:
   if   ltFile:
@@ -129,6 +129,9 @@ while cycle < max_num_cycle:
 
   # Exit Status
   exit_cond, exit_status = system.getExitStatus()
+  
+  if exit_cond:
+    print('-' + bot[1:], end='')
 
   if exit_cond:
     print('')

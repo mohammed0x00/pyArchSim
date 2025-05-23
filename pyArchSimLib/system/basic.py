@@ -15,7 +15,7 @@ class BasicSystem():
   def __init__(s, doLinetrace=False):
     # hawajkm: basic system includes a memory and a processor (for now).
     s.proc = FiveStageInorderProcessor()
-    s.mem  = SimpleMultiportedMemory(2)
+    s.mem  = SimpleMultiportedMemory(2, 10)
 
     # Connect the parts
     s.proc.setMemCanReq    (s.mem.canReq  )
