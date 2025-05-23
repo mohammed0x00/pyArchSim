@@ -34,14 +34,21 @@ jobs:
             echo "PDF not found, skipping deployment."
             exit 0
           fi
-          
+
+          # Save PDF to a temp location
+          cp docs/report.pdf /tmp/report.pdf
+
           # Configure Git
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           git fetch origin deploy:deploy || git checkout --orphan deploy
           git reset --hard origin/deploy
           git rm -rf .
-          git checkout main -- docs/report.pdf
-          git add report.pdf
+
+          # Restore PDF from temp location
+          mkdir -p docs
+          mv /tmp/report.pdf docs/report.pdf
+
+          git add docs/report.pdf
           git commit -m "Update report.pdf" || echo "No changes to commit"
           git push origin deploy --force
