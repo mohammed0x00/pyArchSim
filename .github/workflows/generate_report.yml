@@ -1,0 +1,49 @@
+name: Build The report PDF
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'docs/report.tex'
+      - '.github/workflows/generate_report.yml'
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout master branch
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Compile PDF using LaTeX Action
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: report.tex
+          working_directory: docs
+          latexmk_use_lualatex: false  # set true if needed
+          continue_on_error: false
+
+      - name: Switch to deploy branch and update PDF
+        run: |
+          # Check if the PDF was generated successfully
+          if [ ! -f docs/report.pdf ]; then
+            echo "PDF not found, skipping deployment."
+            exit 0
+          fi
+          # Copy the PDF to the root directory
+          cp docs/report.pdf ../
+
+          # Configure Git
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git fetch origin deploy:deploy || git checkout --orphan deploy
+          git checkout deploy
+          git rm -rf docs/report.pdf || echo "No PDF to remove"
+          cp ../report.pdf docs/
+          git add docs/report.pdf
+          git commit -m "Update PDF" || echo "No changes to commit"
+          git push origin deploy --force

@@ -1,0 +1,16 @@
+# Ignore all LaTeX files
+*.aux
+*.log
+*.toc
+*.out
+*.synctex.gz
+*.pdf
+*.bbl
+*.blg
+*.dvi
+*.fdb_latexmk
+*.fls
+*.nav
+*.snm
+*.vrb
+*.xdv
