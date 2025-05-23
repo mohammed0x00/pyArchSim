@@ -35,7 +35,7 @@ jobs:
             exit 0
           fi
           # Copy the PDF to the root directory
-          cp docs/report.pdf ../
+          cp docs/report.pdf ~/
 
           # Configure Git
           git config --global user.name "GitHub Actions"
@@ -43,7 +43,7 @@ jobs:
           git fetch origin deploy:deploy || git checkout --orphan deploy
           git checkout deploy
           git rm -rf docs/report.pdf || echo "No PDF to remove"
-          cp ../report.pdf docs/
+          cp ~/report.pdf docs/
           git add docs/report.pdf
           git commit -m "Update PDF" || echo "No changes to commit"
           git push origin deploy --force
