@@ -8,7 +8,7 @@
 import random
 
 from pyArchSimLib.proc.core import FiveStageInorderCore
-from pyArchSimLib.mem.cache import NoCache
+from pyArchSimLib.mem.cache import Cache
 
 class FiveStageInorderProcessor():
   def __init__(s):
@@ -16,8 +16,8 @@ class FiveStageInorderProcessor():
     s.core = FiveStageInorderCore()
 
     # Caches
-    s.icache = NoCache(0)
-    s.dcache = NoCache(1)
+    s.icache = Cache(0)
+    s.dcache = Cache(1)
 
     # Memory interface for syscalls
     s.MemReadFunct  = None
