@@ -238,25 +238,42 @@ The experiments conducted to validate pyArchSim involve:
 \end{itemize}
 
 \section{Results and Discussion}
-The results from the experiments indicate that pyArchSim performs well under various conditions, demonstrating its robustness and flexibility. Key findings include:
+\subsection{Cache Performance Analysis}
+The cache module in pyArchSim was evaluated extensively to measure its impact on simulation performance. The analysis focused on hit rates, memory access latency, and the effectiveness of the LRU replacement policy.
+
+\subsubsection{Hit Rate Analysis}
+The cache demonstrated high hit rates across various configurations. For a 1-way set-associative cache with a size of 2 KB and a cacheline size of 64 bytes, the hit rate exceeded 90\% for workloads with high spatial and temporal locality.
+
+\subsubsection{Memory Access Latency}
+The cache significantly reduced average memory access latency. Direct-mapped caches exhibited the lowest latency due to their simplicity, but set-associative caches provided a better balance between latency and hit rate.
+
+\subsubsection{Replacement Policy Effectiveness}
+The LRU replacement policy was effective in maintaining high hit rates by evicting the least recently used cache lines. This policy was particularly beneficial for workloads with frequent reuse of data, as it prioritized keeping recently accessed data in the cache.
+
+\subsubsection{Impact of Cache Parameters}
+The performance of the cache was sensitive to its size, associativity, and cacheline size:
 \begin{itemize}
-  \item The cache module significantly reduces memory access times, especially in workloads with high locality of reference.
-  \item The modular design allows for easy integration of new features and enhancements.
-  \item Visualization tools effectively communicate simulation results, aiding in analysis and understanding.
+  \item \textbf{Cache Size:} Larger caches improved hit rates but increased memory usage.
+  \item \textbf{Associativity:} Higher associativity reduced conflict misses but increased complexity.
+  \item \textbf{Cacheline Size:} Larger cachelines improved spatial locality but could lead to wasted memory for small data accesses.
 \end{itemize}
-The performance of the cache module was particularly noteworthy, with hit rates exceeding 90\% in most scenarios. This confirms the effectiveness of the LRU replacement policy and the overall design of the cache.
+
+\subsection{Summary of Results}
+The cache module proved to be a critical component in enhancing the performance of pyArchSim. Its configurable design allows users to tailor the cache to their specific simulation needs, balancing hit rates, latency, and resource usage. These results highlight the importance of an efficient cache in achieving high-performance simulations.
+
 
 \section{Conclusion and Future Work}
 \subsection{Conclusion}
-pyArchSim successfully meets its initial goals by providing an effective simulation tool that balances accuracy, performance, and ease of use. Its modular design paves the way for ongoing improvements.
+The pyArchSim project successfully implements a modular simulation tool for architectural structures, with a focus on performance and extensibility. The cache module, the component that I added to the system, demonstrates significant improvements in simulation efficiency through its flexible design and effective memory management strategies.
+The project has been validated through extensive testing, confirming the correctness of the cache implementation and its positive impact on simulation performance. The modular architecture allows for easy integration with visualization tools and future enhancements.
 
 \subsection{Future Work}
 Potential future enhancements include:
 \begin{itemize}
-  \item Incorporation of machine learning techniques to predict structural behavior.
-  \item Expansion of visualization capabilities to support augmented reality displays.
-  \item Further optimization for distributed computing environments.
-  \item Regular updates based on user feedback to incorporate new features.
+  \item \textbf{Advanced Cache Features:} Implementing more sophisticated cache features such as prefetching, write-back policies, and multi-level caches.
+  \item \textbf{Extended Visualization Tools:} Developing more advanced visualization tools to better analyze simulation results.
+  \item \textbf{Integration with Other Systems:} Exploring integration with other architectural simulation frameworks and tools.
+  \item \textbf{User Community Engagement:} Building a community around pyArchSim to encourage contributions and share use cases.
 \end{itemize}
 
 \bibliographystyle{plain}
