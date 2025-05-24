@@ -208,13 +208,49 @@ The cache also provides connection methods to link to the underlying memory subs
 On a memory request, the cache checks if the requested address is present (hit) or not (miss). On a hit, data is returned immediately. On a miss, the cache issues a memory request to the lower-level memory, inserts the fetched block, and returns the requested data. The cache supports both instruction and data ports, and can be configured independently for each.
 
 \section{Cache Testing and Results}
-To validate the correctness and performance of the cache implementation, a series of tests were conducted:
+The cache was tested in various configurations, including different associativities (direct-mapped, set-associative, fully-associative), cache sizes, and cacheline sizes. These tests ensure correct functionality and performance across a range of realistic scenarios.
+
+\subsection{Memory Latency Testing}
+Before starting the test cases, it is important to note that the memory subsystem in these experiments is configured to take 10 cycles to complete an operation. This setup allows us to evaluate the cache's effectiveness in mitigating memory access delays and improving overall performance.
+
+\subsection{First Test Case}
+This example represents the first test case used in the testing process. It demonstrates the cache's ability to handle a simple workload, verifying its functionality and correctness in a controlled scenario.
+\lstinputlisting[language={[x86masm]Assembler}, caption={Example assembly program to sum 10 elements of an array}, label={lst:array_sum}]{testing/array_sum_10element/example.asm}
+
+\subsection{First Test Case Results}
+The results presented in Table~\ref{tab:cache_stats} correspond to the first test case executed to evaluate the cache implementation. This test case involved a simple workload designed to verify the cache's functionality and performance under controlled conditions. The configurations tested include variations in cache size, cacheline size, and associativity, demonstrating the impact of these parameters on hit/miss rates and overall simulation cycles.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|r|r|r|r|r|}
+\hline
+\textbf{Configuration} & \textbf{Total Cycles} & \textbf{I Hits} & \textbf{I Misses} & \textbf{D Hits} & \textbf{D Misses} \\
+\hline
+nocache & 1172 & 0 & 0 & 0 & 0 \\
+1kb\_cline8\_assoc1 & 337 & 134 & 111 & 22 & 96 \\
+1kb\_cline16\_assoc1 & 237 & 130 & 38 & 31 & 36 \\
+2kb\_cline64\_assoc1 & 236 & 148 & 13 & 43 & 12 \\
+\hline
+\end{tabular}
+\caption{Cache simulator results: cycles, I-Cache and D-Cache hits/misses per configuration}
+\label{tab:cache_stats}
+\end{table}
+
+\subsection{Conclusion from Results}
+The results in Table~\ref{tab:cache_stats} demonstrate the significant impact of cache configuration on simulation performance. Specifically:
+\begin{itemize}
+  \item The \texttt{nocache} configuration results in the highest total cycles, as every memory access incurs the full memory latency.
+  \item Introducing a cache (\texttt{1kb\_cline8\_assoc1}) reduces the total cycles by approximately 71\%, highlighting the effectiveness of caching in reducing memory access delays.
+  \item Increasing the cacheline size (\texttt{1kb\_cline16\_assoc1}) further improves performance, as larger cachelines reduce the number of misses by prefetching adjacent data.
+  \item A larger cache size (\texttt{2kb\_cline64\_assoc1}) achieves the best performance, with the lowest total cycles and miss rates, demonstrating the benefits of increased capacity for storing frequently accessed data.
+\end{itemize}
+These results confirm that optimizing cache parameters, such as size, cacheline size, and associativity, can significantly enhance simulation efficiency.
 
 \subsection{Functional Testing}
 \begin{itemize}
   \item \textbf{Hit/Miss Behavior:} Verified that repeated accesses to the same address result in a miss on the first access and hits on subsequent accesses.
   \item \textbf{Eviction Policy:} Confirmed that the LRU policy correctly evicts the least recently used line when a set is full.
-  \item \textbf{Associativity:} Tested direct-mapped, 2-way, and fully-associative configurations to ensure correct set selection and replacement.
+  \item \textbf{Associativity and Cache Size:} Tested the cache with different associativities and cache sizes to ensure correct set selection, replacement, and scalability.
   \item \textbf{Integration:} Integrated the cache with the processor and memory modules, ensuring correct data flow and timing.
 \end{itemize}
 
