@@ -1,0 +1,1618 @@
+INFO: Set root_dir to "/home/mmansour/pyArchSim"
++----------+------------+----------+----------+----------+----------+---------+---------+----------+-----+
+| Cycle    | Fetch      | Decode   | Execute  | Memory   | Complete | I-Cache | D-Cache |          | Mem |
++----------+------------+----------+----------+----------+----------+---------+---------+----------+-----+
+         0 | 0x04000000 |          |          |          |          |   miss  |    --   | >>=||=>> | mem |
+         1 | S <<<      | S mem    |          |          |          |   miss  |    --   | >>=||=>> | mem |
+         2 | S <<<      | S mem    |          |          |          |   miss  |    --   | >>=||=>> | mem |
+         3 | S <<<      | S mem    |          |          |          |   miss  |    --   | >>=||=>> | mem |
+         4 | S <<<      | S mem    |          |          |          |   miss  |    --   | >>=||=>> | mem |
+         5 | S <<<      | S mem    |          |          |          |   miss  |    --   | >>=||=>> | mem |
+         6 | S <<<      | S mem    |          |          |          |   miss  |    --   | >>=||=>> | mem |
+         7 | S <<<      | S mem    |          |          |          |   miss  |    --   | >>=||=>> | mem |
+         8 | S <<<      | S mem    |          |          |          |   miss  |    --   | >>=||=>> | mem |
+         9 | S <<<      | S mem    |          |          |          |   miss  |    --   | >>=||=>> | mem |
+        10 | S <<<      | S mem    |          |          |          |   miss  |    --   | >>=||=>> | mem |
+        11 | 0x04000004 | lui      |          |          |          |   hit   |    --   | >>=||=>> | mem |
+        12 | S <<<      | S raw    | lui      |          |          |    --   |    --   | >>=||=>> | mem |
+        13 | 0x04000008 | ori      |          | lui      |          |   hit   |    --   | >>=||=>> | mem |
+        14 | S <<<      | S raw    | ori      |          | lui      |    --   |    --   | >>=||=>> | mem |
+        15 | 0x0400000c | lw       |          | ori      |          |   hit   |    --   | >>=||=>> | mem |
+        16 | 0x04000010 | lui      | lw       |          | ori      |   hit   |   miss  | >>=||=>> | mem |
+        17 | S <<<      | S <<<    | S <<<    | S dmem   |          |   hit   |   miss  | >>=||=>> | mem |
+        18 | S <<<      | S <<<    | S <<<    | S dmem   |          |   hit   |   miss  | >>=||=>> | mem |
+        19 | S <<<      | S <<<    | S <<<    | S dmem   |          |   hit   |   miss  | >>=||=>> | mem |
+        20 | S <<<      | S <<<    | S <<<    | S dmem   |          |   hit   |   miss  | >>=||=>> | mem |
+        21 | S <<<      | S <<<    | S <<<    | S dmem   |          |   hit   |   miss  | >>=||=>> | mem |
+        22 | S <<<      | S <<<    | S <<<    | S dmem   |          |   hit   |   miss  | >>=||=>> | mem |
+        23 | S <<<      | S <<<    | S <<<    | S dmem   |          |   hit   |   miss  | >>=||=>> | mem |
+        24 | S <<<      | S <<<    | S <<<    | S dmem   |          |   hit   |   miss  | >>=||=>> | mem |
+        25 | S <<<      | S <<<    | S <<<    | S dmem   |          |   hit   |   miss  | >>=||=>> | mem |
+        26 | S <<<      | S <<<    | S <<<    | S dmem   |          |   hit   |   miss  | >>=||=>> | mem |
+        27 | S <<<      | S raw    | lui      | lw       |          |    --   |    --   | >>=||=>> | mem |
+        28 | 0x04000014 | ori      |          | lui      | lw       |   hit   |    --   | >>=||=>> | mem |
+        29 | 0x04000018 | lui      | ori      |          | lui      |   hit   |    --   | >>=||=>> | mem |
+        30 | S <<<      | S raw    | lui      | ori      |          |    --   |    --   | >>=||=>> | mem |
+        31 | 0x0400001c | ori      |          | lui      | ori      |   hit   |    --   | >>=||=>> | mem |
+        32 | 0x04000020 | lui      | ori      |          | lui      |   hit   |    --   | >>=||=>> | mem |
+        33 | S <<<      | S raw    | lui      | ori      |          |    --   |    --   | >>=||=>> | mem |
+        34 | 0x04000024 | ori      |          | lui      | ori      |   hit   |    --   | >>=||=>> | mem |
+        35 | 0x04000028 | addiu    | ori      |          | lui      |   hit   |    --   | >>=||=>> | mem |
+        36 | S <<<      | S |>>    | addiu    | ori      |          |    --   |    --   | >>=||=>> | mem |
+        37 | S <<<      | S |>>    |          | addiu    | ori      |    --   |    --   | >>=||=>> | mem |
+        38 | S <<<      | S |>>    |          |          | addiu    |    --   |    --   | >>=||=>> | mem |
+        39 | 0x0400002c | syscall  |          |          |          |   hit   |    --   | >>=||=>> | mem |
+        40 | S <<<      | S >>|    | syscall  |          |          |   hit   |    --   | >>=||=>> | mem |
+        41 | S <<<      | S >>|    |          | syscall  |          |   hit   |    --   | >>=||=>> | mem |
+        42 | S <<<      | S >>|    |          |          | syscall  |   hit   |    --   | >>=||=>> | mem |
+        43 | 0x04000030 | beq      |          |          |          |   hit   |    --   | >>=||=>> | mem |
+        44 | 0x04000034 | lw       | beq      |          |          |   hit   |    --   | >>=||=>> | mem |
+        45 | 0x04000038 | lw       | lw       | beq      |          |   hit   |   miss  | >>=||=>> | mem |
+        46 | S <<<      | S raw    | lw       | lw       | beq      |    --   |   miss  | >>=||=>> | mem |
+        47 | S <<<      | S raw    |          | S dmem   | lw       |    --   |   miss  | >>=||=>> | mem |
+        48 | S <<<      | S raw    |          | S dmem   |          |    --   |   miss  | >>=||=>> | mem |
+        49 | S <<<      | S raw    |          | S dmem   |          |    --   |   miss  | >>=||=>> | mem |
+        50 | S <<<      | S raw    |          | S dmem   |          |    --   |   miss  | >>=||=>> | mem |
+        51 | S <<<      | S raw    |          | S dmem   |          |    --   |   miss  | >>=||=>> | mem |
+        52 | S <<<      | S raw    |          | S dmem   |          |    --   |   miss  | >>=||=>> | mem |
+        53 | S <<<      | S raw    |          | S dmem   |          |    --   |   miss  | >>=||=>> | mem |
+        54 | S <<<      | S raw    |          | S dmem   |          |    --   |   miss  | >>=||=>> | mem |
+        55 | S <<<      | S raw    |          | S dmem   |          |    --   |   miss  | >>=||=>> | mem |
+        56 | S <<<      | S raw    |          | lw       |          |    --   |    --   | >>=||=>> | mem |
+        57 | 0x0400003c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+        58 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+        59 | 0x04000040 | sw       |          | addu     |          |   miss  |    --   | >>=||=>> | mem |
+        60 | 0x04000044 | lui      | sw       |          | addu     |   hit   |   miss  | >>=||=>> | mem |
+        61 | S <<<      | S <<<    | S <<<    | S dmem   |          |   hit   |   miss  | >>=||=>> | mem |
+        62 | S <<<      | S <<<    | S <<<    | S dmem   |          |   hit   |   miss  | >>=||=>> | mem |
+        63 | S <<<      | S <<<    | S <<<    | S dmem   |          |   hit   |   miss  | >>=||=>> | mem |
+        64 | S <<<      | S <<<    | S <<<    | S dmem   |          |   hit   |   miss  | >>=||=>> | mem |
+        65 | S <<<      | S <<<    | S <<<    | S dmem   |          |   hit   |   miss  | >>=||=>> | mem |
+        66 | S <<<      | S raw    | lui      | sw       |          |    --   |    --   | >>=||=>> | mem |
+        67 | 0x04000048 | ori      |          | lui      | sw       |   hit   |    --   | >>=||=>> | mem |
+        68 | S <<<      | S raw    | ori      |          | lui      |    --   |    --   | >>=||=>> | mem |
+        69 | 0x0400004c | lw       |          | ori      |          |   hit   |    --   | >>=||=>> | mem |
+        70 | 0x04000050 | lui      | lw       |          | ori      |   hit   |   hit   | >>=||=>> | mem |
+        71 | S <<<      | S raw    | lui      | lw       |          |    --   |    --   | >>=||=>> | mem |
+        72 | 0x04000054 | ori      |          | lui      | lw       |   hit   |    --   | >>=||=>> | mem |
+        73 | 0x04000058 | lui      | ori      |          | lui      |   hit   |    --   | >>=||=>> | mem |
+        74 | S <<<      | S raw    | lui      | ori      |          |    --   |    --   | >>=||=>> | mem |
+        75 | 0x0400005c | ori      |          | lui      | ori      |   hit   |    --   | >>=||=>> | mem |
+        76 | 0x04000060 | lui      | ori      |          | lui      |   hit   |    --   | >>=||=>> | mem |
+        77 | S <<<      | S raw    | lui      | ori      |          |    --   |    --   | >>=||=>> | mem |
+        78 | 0x04000064 | ori      |          | lui      | ori      |   hit   |    --   | >>=||=>> | mem |
+        79 | 0x04000068 | addiu    | ori      |          | lui      |   hit   |    --   | >>=||=>> | mem |
+        80 | S <<<      | S |>>    | addiu    | ori      |          |    --   |    --   | >>=||=>> | mem |
+        81 | S <<<      | S |>>    |          | addiu    | ori      |    --   |    --   | >>=||=>> | mem |
+        82 | S <<<      | S |>>    |          |          | addiu    |    --   |    --   | >>=||=>> | mem |
+        83 | 0x0400006c | syscall  |          |          |          |   hit   |    --   | >>=||=>> | mem |
+        84 | S <<<      | S >>|    | syscall  |          |          |   hit   |    --   | >>=||=>> | mem |
+        85 | S <<<      | S >>|    |          | syscall  |          |   hit   |    --   | >>=||=>> | mem |
+        86 | S <<<      | S >>|    |          |          | syscall  |   hit   |    --   | >>=||=>> | mem |
+        87 | 0x04000070 | beq      |          |          |          |   hit   |    --   | >>=||=>> | mem |
+        88 | 0x04000074 | lw       | beq      |          |          |   hit   |    --   | >>=||=>> | mem |
+        89 | 0x04000078 | lw       | lw       | beq      |          |   hit   |   hit   | >>=||=>> | mem |
+        90 | S <<<      | S raw    | lw       | lw       | beq      |    --   |   hit   | >>=||=>> | mem |
+        91 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+        92 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+        93 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+        94 | 0x04000080 | sw       |          | addu     |          |   miss  |    --   | >>=||=>> | mem |
+        95 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+        96 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+        97 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+        98 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+        99 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       100 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       101 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       102 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       103 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       104 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       105 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       106 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       107 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       108 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       109 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       110 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       111 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       112 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       113 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       114 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       115 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       116 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       117 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       118 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       119 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       120 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       121 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       122 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       123 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       124 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       125 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       126 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       127 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       128 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       129 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       130 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       131 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       132 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       133 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       134 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       135 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       136 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       137 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       138 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       139 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       140 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       141 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       142 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       143 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       144 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       145 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       146 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       147 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       148 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       149 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       150 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       151 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       152 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       153 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       154 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       155 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       156 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       157 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       158 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       159 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       160 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       161 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       162 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       163 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       164 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       165 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       166 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       167 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       168 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       169 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       170 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       171 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       172 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       173 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       174 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       175 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       176 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       177 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       178 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       179 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       180 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       181 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       182 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       183 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       184 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       185 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       186 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       187 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       188 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       189 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       190 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       191 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       192 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       193 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       194 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       195 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       196 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       197 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       198 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       199 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       200 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       201 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       202 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       203 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       204 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       205 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       206 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       207 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       208 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       209 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       210 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       211 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       212 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       213 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       214 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       215 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   miss  | >>=||=>> | mem |
+       216 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       217 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       218 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       219 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       220 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       221 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       222 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       223 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       224 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       225 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       226 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       227 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       228 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       229 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       230 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       231 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       232 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       233 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       234 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       235 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       236 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       237 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       238 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       239 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       240 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       241 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       242 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       243 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       244 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       245 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       246 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       247 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       248 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       249 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       250 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       251 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       252 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       253 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       254 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       255 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       256 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       257 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       258 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       259 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       260 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       261 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       262 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       263 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       264 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       265 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       266 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       267 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       268 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       269 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       270 | S <<<      | S raw    | lw       | lw       | -        |    --   |   miss  | >>=||=>> | mem |
+       271 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       272 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       273 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       274 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       275 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       276 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       277 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       278 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       279 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       280 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       281 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       282 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       283 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       284 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       285 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       286 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       287 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       288 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       289 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       290 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       291 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       292 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       293 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       294 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       295 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       296 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       297 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       298 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       299 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       300 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       301 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       302 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       303 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       304 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       305 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       306 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       307 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       308 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       309 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       310 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       311 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       312 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       313 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       314 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       315 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       316 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       317 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       318 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       319 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       320 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       321 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       322 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       323 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       324 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       325 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       326 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       327 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       328 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       329 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   miss  | >>=||=>> | mem |
+       330 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       331 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       332 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       333 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       334 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       335 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       336 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       337 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       338 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       339 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       340 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       341 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       342 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       343 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       344 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       345 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       346 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       347 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       348 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       349 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       350 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       351 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       352 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       353 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       354 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       355 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       356 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       357 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       358 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       359 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       360 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       361 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       362 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       363 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       364 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       365 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       366 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       367 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       368 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       369 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       370 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       371 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       372 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       373 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       374 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       375 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       376 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       377 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       378 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       379 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       380 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       381 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       382 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       383 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       384 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       385 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       386 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       387 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       388 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       389 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       390 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       391 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       392 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       393 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       394 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       395 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       396 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       397 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       398 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       399 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       400 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       401 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       402 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       403 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       404 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       405 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       406 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       407 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       408 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       409 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       410 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       411 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       412 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       413 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       414 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       415 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       416 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       417 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       418 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       419 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       420 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       421 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       422 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       423 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       424 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       425 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       426 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       427 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       428 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       429 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       430 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       431 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       432 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       433 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       434 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       435 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       436 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       437 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       438 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       439 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       440 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       441 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       442 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       443 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       444 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       445 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       446 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       447 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       448 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       449 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       450 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       451 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       452 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       453 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       454 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       455 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   miss  | >>=||=>> | mem |
+       456 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       457 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       458 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       459 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       460 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       461 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       462 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       463 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       464 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       465 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       466 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       467 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       468 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       469 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       470 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       471 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       472 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       473 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       474 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       475 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       476 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       477 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       478 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       479 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       480 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       481 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       482 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       483 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       484 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       485 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       486 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       487 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       488 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       489 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       490 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       491 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       492 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       493 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       494 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       495 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       496 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       497 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       498 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       499 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       500 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       501 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       502 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       503 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       504 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       505 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       506 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       507 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       508 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       509 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       510 | S <<<      | S raw    | lw       | lw       | -        |    --   |   miss  | >>=||=>> | mem |
+       511 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       512 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       513 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       514 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       515 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       516 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       517 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       518 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       519 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       520 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       521 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       522 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       523 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       524 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       525 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       526 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       527 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       528 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       529 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       530 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       531 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       532 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       533 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       534 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       535 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       536 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       537 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       538 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       539 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       540 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       541 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       542 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       543 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       544 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       545 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       546 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       547 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       548 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       549 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       550 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       551 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       552 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       553 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       554 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       555 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       556 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       557 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       558 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       559 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       560 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       561 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       562 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       563 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       564 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       565 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       566 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       567 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       568 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       569 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   miss  | >>=||=>> | mem |
+       570 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       571 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       572 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       573 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       574 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       575 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       576 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       577 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       578 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       579 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       580 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       581 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       582 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       583 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       584 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       585 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       586 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       587 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       588 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       589 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       590 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       591 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       592 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       593 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       594 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       595 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       596 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       597 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       598 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       599 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       600 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       601 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       602 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       603 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       604 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       605 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       606 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       607 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       608 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       609 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       610 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       611 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       612 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       613 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       614 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       615 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       616 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       617 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       618 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       619 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       620 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       621 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       622 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       623 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       624 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       625 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       626 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       627 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       628 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       629 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       630 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       631 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       632 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       633 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       634 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       635 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       636 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       637 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       638 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       639 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       640 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       641 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       642 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       643 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       644 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       645 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       646 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       647 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       648 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       649 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       650 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       651 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       652 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       653 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       654 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       655 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       656 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       657 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       658 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       659 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       660 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       661 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       662 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       663 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       664 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       665 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       666 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       667 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       668 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       669 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       670 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       671 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       672 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       673 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       674 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       675 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       676 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       677 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       678 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       679 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       680 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       681 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       682 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       683 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       684 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       685 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       686 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       687 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       688 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       689 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       690 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       691 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       692 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       693 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       694 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       695 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   miss  | >>=||=>> | mem |
+       696 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       697 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       698 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       699 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       700 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       701 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       702 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       703 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       704 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       705 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       706 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       707 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       708 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       709 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       710 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       711 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       712 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       713 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       714 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       715 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       716 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       717 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       718 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       719 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       720 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       721 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       722 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       723 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       724 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       725 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       726 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       727 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       728 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       729 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       730 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       731 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       732 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       733 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       734 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       735 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       736 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       737 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       738 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       739 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       740 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       741 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       742 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       743 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       744 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       745 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       746 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       747 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       748 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       749 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       750 | S <<<      | S raw    | lw       | lw       | -        |    --   |   miss  | >>=||=>> | mem |
+       751 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       752 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       753 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       754 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       755 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       756 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       757 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       758 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       759 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       760 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       761 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       762 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       763 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       764 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       765 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       766 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       767 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       768 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       769 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       770 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       771 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       772 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       773 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       774 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       775 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       776 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       777 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       778 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       779 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       780 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       781 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       782 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       783 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       784 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       785 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       786 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       787 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       788 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       789 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       790 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       791 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       792 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       793 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       794 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       795 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       796 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       797 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       798 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       799 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       800 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       801 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       802 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       803 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       804 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       805 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       806 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       807 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       808 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       809 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   miss  | >>=||=>> | mem |
+       810 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       811 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       812 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       813 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       814 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       815 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       816 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       817 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       818 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       819 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       820 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       821 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       822 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       823 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       824 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       825 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       826 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       827 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       828 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       829 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       830 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       831 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       832 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       833 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       834 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       835 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       836 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       837 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       838 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       839 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       840 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       841 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       842 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       843 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       844 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       845 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       846 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       847 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       848 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       849 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       850 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       851 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       852 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       853 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       854 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       855 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       856 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       857 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       858 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       859 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       860 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       861 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       862 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       863 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       864 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       865 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       866 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       867 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       868 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       869 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       870 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       871 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       872 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       873 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       874 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       875 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       876 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       877 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       878 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       879 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       880 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       881 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       882 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       883 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       884 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       885 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       886 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       887 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       888 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       889 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       890 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       891 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       892 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       893 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       894 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       895 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       896 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       897 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       898 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       899 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       900 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       901 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       902 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       903 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       904 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       905 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       906 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       907 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       908 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       909 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       910 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       911 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       912 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       913 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       914 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       915 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       916 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       917 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       918 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       919 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       920 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       921 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       922 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       923 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       924 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       925 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       926 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       927 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       928 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       929 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       930 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       931 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       932 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       933 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       934 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       935 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   miss  | >>=||=>> | mem |
+       936 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       937 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       938 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       939 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       940 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       941 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       942 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       943 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       944 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       945 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       946 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       947 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       948 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       949 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       950 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       951 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       952 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       953 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       954 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       955 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       956 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       957 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       958 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       959 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       960 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       961 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       962 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       963 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       964 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       965 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       966 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       967 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       968 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       969 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       970 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       971 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       972 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       973 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       974 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       975 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+       976 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       977 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       978 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       979 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       980 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       981 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       982 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       983 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       984 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+       985 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       986 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+       987 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+       988 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+       989 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+       990 | S <<<      | S raw    | lw       | lw       | -        |    --   |   miss  | >>=||=>> | mem |
+       991 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+       992 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+       993 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+       994 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+       995 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+       996 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+       997 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+       998 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+       999 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1000 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1001 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1002 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1003 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1004 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+      1005 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+      1006 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1007 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1008 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1009 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1010 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+      1011 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1012 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1013 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1014 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1015 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1016 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1017 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1018 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1019 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+      1020 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+      1021 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1022 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1023 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1024 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1025 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+      1026 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1027 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1028 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1029 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1030 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1031 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1032 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1033 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1034 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+      1035 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+      1036 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1037 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1038 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1039 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1040 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+      1041 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1042 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1043 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1044 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1045 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1046 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1047 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1048 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1049 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   miss  | >>=||=>> | mem |
+      1050 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+      1051 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1052 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1053 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1054 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1055 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+      1056 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1057 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1058 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1059 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1060 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1061 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1062 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1063 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1064 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+      1065 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+      1066 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1067 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1068 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1069 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1070 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+      1071 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1072 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1073 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1074 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1075 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1076 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1077 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1078 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1079 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+      1080 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+      1081 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1082 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1083 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1084 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1085 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+      1086 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1087 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1088 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1089 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1090 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1091 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1092 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1093 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1094 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+      1095 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+      1096 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1097 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1098 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1099 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1100 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+      1101 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1102 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1103 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1104 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1105 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1106 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1107 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1108 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1109 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+      1110 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+      1111 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1112 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1113 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1114 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1115 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+      1116 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1117 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1118 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1119 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1120 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1121 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1122 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1123 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1124 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+      1125 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+      1126 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1127 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1128 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1129 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1130 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+      1131 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1132 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1133 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1134 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1135 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1136 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1137 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1138 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1139 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+      1140 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+      1141 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1142 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1143 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1144 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1145 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+      1146 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1147 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1148 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1149 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1150 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1151 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1152 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1153 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1154 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+      1155 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+      1156 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1157 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1158 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1159 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1160 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+      1161 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1162 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1163 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1164 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1165 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1166 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1167 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1168 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1169 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+      1170 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+      1171 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1172 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1173 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1174 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1175 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   miss  | >>=||=>> | mem |
+      1176 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1177 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1178 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1179 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1180 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1181 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1182 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1183 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1184 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+      1185 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+      1186 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1187 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1188 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1189 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1190 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+      1191 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1192 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1193 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1194 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1195 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1196 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1197 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1198 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1199 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+      1200 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+      1201 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1202 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1203 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1204 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1205 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+      1206 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1207 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1208 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1209 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1210 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1211 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1212 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1213 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1214 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+      1215 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+      1216 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1217 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1218 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1219 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1220 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+      1221 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1222 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1223 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1224 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1225 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1226 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1227 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1228 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1229 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+      1230 | S <<<      | S raw    | lw       | lw       | -        |    --   |   miss  | >>=||=>> | mem |
+      1231 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1232 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1233 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1234 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1235 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+      1236 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1237 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1238 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1239 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1240 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1241 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1242 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1243 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1244 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+      1245 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+      1246 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1247 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1248 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1249 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1250 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+      1251 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1252 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1253 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1254 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1255 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1256 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1257 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1258 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1259 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+      1260 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+      1261 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1262 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1263 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1264 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1265 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+      1266 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1267 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1268 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1269 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1270 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1271 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1272 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1273 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1274 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+      1275 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+      1276 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1277 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1278 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1279 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1280 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+      1281 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1282 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1283 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1284 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1285 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1286 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1287 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1288 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1289 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   miss  | >>=||=>> | mem |
+      1290 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+      1291 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1292 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1293 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1294 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1295 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+      1296 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1297 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1298 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1299 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1300 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1301 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1302 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1303 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1304 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+      1305 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+      1306 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1307 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1308 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1309 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1310 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+      1311 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1312 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1313 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1314 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1315 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1316 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1317 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1318 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1319 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+      1320 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+      1321 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1322 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1323 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1324 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1325 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+      1326 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1327 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1328 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1329 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1330 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1331 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1332 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1333 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1334 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+      1335 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+      1336 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1337 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1338 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1339 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1340 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+      1341 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1342 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1343 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1344 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1345 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1346 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1347 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1348 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1349 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+      1350 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+      1351 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1352 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1353 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1354 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1355 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+      1356 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1357 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1358 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1359 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1360 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1361 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1362 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1363 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1364 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+      1365 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+      1366 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1367 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1368 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1369 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1370 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+      1371 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1372 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1373 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1374 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1375 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1376 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1377 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1378 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1379 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+      1380 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+      1381 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1382 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1383 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1384 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1385 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+      1386 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1387 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1388 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1389 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1390 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1391 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1392 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1393 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1394 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+      1395 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+      1396 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1397 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1398 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1399 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1400 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+      1401 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1402 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1403 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1404 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1405 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1406 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1407 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1408 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1409 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+      1410 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+      1411 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1412 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1413 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1414 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1415 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+      1416 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1417 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1418 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1419 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1420 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1421 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1422 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1423 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1424 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+      1425 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+      1426 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1427 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1428 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1429 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1430 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+      1431 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1432 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1433 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1434 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1435 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1436 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1437 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1438 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1439 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+      1440 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+      1441 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1442 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1443 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1444 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1445 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+      1446 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1447 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1448 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1449 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1450 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1451 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1452 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1453 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1454 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+      1455 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+      1456 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1457 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1458 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1459 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1460 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+      1461 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1462 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1463 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1464 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1465 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1466 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1467 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1468 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1469 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+      1470 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+      1471 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1472 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1473 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1474 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1475 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+      1476 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1477 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1478 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1479 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1480 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1481 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1482 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1483 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1484 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+      1485 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+      1486 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1487 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1488 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1489 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1490 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+      1491 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1492 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1493 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1494 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1495 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1496 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1497 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1498 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1499 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+      1500 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+      1501 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1502 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1503 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1504 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1505 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+      1506 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1507 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1508 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1509 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1510 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1511 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1512 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1513 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1514 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+      1515 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+      1516 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1517 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1518 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1519 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1520 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+      1521 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1522 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1523 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1524 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1525 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1526 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1527 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1528 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1529 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+      1530 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+      1531 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1532 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1533 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1534 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1535 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+      1536 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1537 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1538 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1539 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1540 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1541 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1542 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1543 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1544 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+      1545 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+      1546 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1547 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1548 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1549 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1550 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+      1551 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1552 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1553 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1554 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1555 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1556 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1557 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1558 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1559 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+      1560 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+      1561 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1562 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1563 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1564 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1565 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+      1566 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1567 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1568 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1569 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1570 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1571 | -          | -        | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1572 | 0x04000070 | -        | -        | bne      |          |   hit   |    --   | >>=||=>> | mem |
+      1573 | 0x04000074 | lw       | -        | -        | bne      |   hit   |    --   | >>=||=>> | mem |
+      1574 | 0x04000078 | lw       | lw       | -        | -        |   hit   |   hit   | >>=||=>> | mem |
+      1575 | S <<<      | S raw    | lw       | lw       | -        |    --   |   hit   | >>=||=>> | mem |
+      1576 | S <<<      | S raw    |          | lw       | lw       |    --   |    --   | >>=||=>> | mem |
+      1577 | 0x0400007c | addu     |          |          | lw       |   hit   |    --   | >>=||=>> | mem |
+      1578 | S <<<      | S raw    | addu     |          |          |    --   |    --   | >>=||=>> | mem |
+      1579 | 0x04000080 | sw       |          | addu     |          |   hit   |    --   | >>=||=>> | mem |
+      1580 | 0x04000084 | addiu    | sw       |          | addu     |   hit   |   hit   | >>=||=>> | mem |
+      1581 | 0x04000088 | addiu    | addiu    | sw       |          |   hit   |    --   | >>=||=>> | mem |
+      1582 | 0x0400008c | addiu    | addiu    | addiu    | sw       |   hit   |    --   | >>=||=>> | mem |
+      1583 | 0x04000090 | addiu    | addiu    | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1584 | S <<<      | S raw    | addiu    | addiu    | addiu    |    --   |    --   | >>=||=>> | mem |
+      1585 | 0x04000094 | bne      |          | addiu    | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1586 | 0x04000098 | addiu    | bne      |          | addiu    |   hit   |    --   | >>=||=>> | mem |
+      1587 | S <<<      | S |>>    | addiu    | bne      |          |    --   |    --   | >>=||=>> | mem |
+      1588 | S <<<      | S |>>    |          | addiu    | bne      |    --   |    --   | >>=||=>> | mem |
+      1589 | S <<<      | S |>>    |          |          | addiu    |    --   |    --   | >>=||=>> | mem |
+      1590 | 0x0400009c | syscall  |          |          |          |   hit   |    --   | >>=||=>> | mem |
+      1591 | S <<<      | S >>|    | syscall  |          |          |   hit   |    --   | >>=||=>> | mem |
+      1592 | S <<<      | S >>|    |          | syscall  |          |   hit   |    --   | >>=||=>> | mem |
+      1593 | S <<<      | S >>|    |          |          | syscall  |   hit   |    --   | >>=||=>> | mem |
+      1594 | 0x040000a0 | addiu    |          |          |          |   hit   |    --   | >>=||=>> | mem |
+      1595 | S <<<      | S |>>    | addiu    |          |          |    --   |    --   | >>=||=>> | mem |
+      1596 | S <<<      | S |>>    |          | addiu    |          |    --   |    --   | >>=||=>> | mem |
+      1597 | S <<<      | S |>>    |          |          | addiu    |    --   |    --   | >>=||=>> | mem |
+      1598 | 0x040000a4 | syscall  |          |          |          |   hit   |    --   | >>=||=>> | mem |
+      1599 | S <<<      | S >>|    | syscall  |          |          |   hit   |    --   | >>=||=>> | mem |
+-----------+------------+----------+----------+----------+----------+---------+---------+----------+-----+
+
+ + Overall Total Statistics:
+     - Total Number of Cycles = 1600
+     - Total Number of Completed Instructions = 931
+     - Average IPC = 0.58
+     - Average CPI = 1.72
+
+ + ROI Statistics:
+     - ROI Number of Cycles = 52
+     - ROI Number of Completed Instructions = 18
+     - ROI Average IPC = 0.35
+     - ROI Average CPI = 2.89
+

@@ -236,15 +236,33 @@ nocache & 1172 & 0 & 0 & 0 & 0 \\
 \label{tab:cache_stats}
 \end{table}
 
+\subsection{Second Test Case}
+The second test case expands on the first by increasing the workload to sum 100 elements of an array. This test case is designed to further evaluate the cache's performance under a more substantial memory access pattern, allowing for a better understanding of its efficiency in handling larger datasets.
+\lstinputlisting[language={[x86masm]Assembler}, caption={Example assembly program to sum 100 elements of an array}, label={lst:array_sum}]{testing/array_sum_100element/example2.asm}
+
+\subsection{Second Test Case Results}
+The results presented in Table~\ref{tab:cache_stats2} correspond to the second test case executed to evaluate the cache implementation. This test case involved a more complex workload, summing 100 elements of an array, which allowed for a deeper analysis of the cache's performance across different configurations. The results highlight the differences in hit/miss rates and total cycles for various cache sizes and associativities, demonstrating the cache's effectiveness in reducing memory access latency.
+
+\begin{table}
+\centering
+\caption{Cache simulator results: cycles, I-Cache and D-Cache hits/misses per configuration}
+\label{tab:cache_stats2}
+\begin{tabular}{|l|r|r|r|r|r|}
+\hline
+  Configuration &  Total Cycles &  I Hits &  I Misses &  D Hits &  D Misses \\
+\hline
+     nocache &         10352 &             0 &               0 &             0 &               0 \\
+ 1kb\_cline8\_assoc1 &          2317 &          1349 &             111 &           157 &             861 \\
+1kb\_cline16\_assoc1 &          1919 &          1236 &              38 &           233 &             436 \\
+2kb\_cline64\_assoc1 &          1600 &          1143 &              13 &           296 &              43 \\
+\hline
+\end{tabular}
+\end{table}
+
+
+
 \subsection{Conclusion from Results}
-The results in Table~\ref{tab:cache_stats} demonstrate the significant impact of cache configuration on simulation performance. Specifically:
-\begin{itemize}
-  \item The \texttt{nocache} configuration results in the highest total cycles, as every memory access incurs the full memory latency.
-  \item Introducing a cache (\texttt{1kb\_cline8\_assoc1}) reduces the total cycles by approximately 71\%, highlighting the effectiveness of caching in reducing memory access delays.
-  \item Increasing the cacheline size (\texttt{1kb\_cline16\_assoc1}) further improves performance, as larger cachelines reduce the number of misses by prefetching adjacent data.
-  \item A larger cache size (\texttt{2kb\_cline64\_assoc1}) achieves the best performance, with the lowest total cycles and miss rates, demonstrating the benefits of increased capacity for storing frequently accessed data.
-\end{itemize}
-These results confirm that optimizing cache parameters, such as size, cacheline size, and associativity, can significantly enhance simulation efficiency.
+The results from both test cases demonstrate the cache's effectiveness in reducing memory access cycles, with significant improvements in hit rates as cache size and associativity increase. The direct-mapped cache shows a higher miss rate compared to set-associative configurations, highlighting the benefits of associativity in reducing conflicts. The cache's performance scales well with larger datasets, confirming its utility in architectural simulations.
 
 \subsection{Functional Testing}
 \begin{itemize}

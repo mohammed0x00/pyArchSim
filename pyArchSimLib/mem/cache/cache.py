@@ -12,7 +12,7 @@ class CacheLine:
         self.valid = valid
 
 class Cache:
-    def __init__(s, port_id, cache_size_kb=1, cacheline_size=16, associativity=1):
+    def __init__(s, port_id, cache_size_kb=2, cacheline_size=64, associativity=1):
         s.port_id = port_id
         s.cache_size = cache_size_kb * 1024  # Convert KB to Bytes
         s.cacheline_size = cacheline_size
