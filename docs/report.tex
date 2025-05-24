@@ -87,6 +87,13 @@ Major implementation details include:
   \item Extensive testing to ensure each module functions as expected.
 \end{itemize}
 
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.8\textwidth]{figs/png/overview.png}
+  \caption{Block diagram of the pyArchSim simulator.}
+  \label{fig:simulator_overview}
+\end{figure}
+
 \section{Cache Class Documentation}
 A new cache class has been incorporated to improve the performance of simulation computations by temporarily storing frequently accessed data. This class is designed to:
 \begin{itemize}
@@ -243,7 +250,7 @@ The second test case expands on the first by increasing the workload to sum 100 
 \subsection{Second Test Case Results}
 The results presented in Table~\ref{tab:cache_stats2} correspond to the second test case executed to evaluate the cache implementation. This test case involved a more complex workload, summing 100 elements of an array, which allowed for a deeper analysis of the cache's performance across different configurations. The results highlight the differences in hit/miss rates and total cycles for various cache sizes and associativities, demonstrating the cache's effectiveness in reducing memory access latency.
 
-\begin{table}
+\begin{table}[ht]
 \centering
 \caption{Cache simulator results: cycles, I-Cache and D-Cache hits/misses per configuration}
 \label{tab:cache_stats2}
@@ -258,7 +265,6 @@ The results presented in Table~\ref{tab:cache_stats2} correspond to the second t
 \hline
 \end{tabular}
 \end{table}
-
 
 
 \subsection{Conclusion from Results}
@@ -314,11 +320,13 @@ Potential future enhancements include:
 \end{itemize}
 
 \section{References}
-\bibliographystyle{plain}
-% Uncomment and modify the following lines to add references.
-%\begin{thebibliography}{9}
-%\bibitem{ref1} Author, ``Title of the paper'', \textit{Journal Name}, Year.
-%\bibitem{ref2} Author, ``Title of the Book'', Publisher, Year.
-%\end{thebibliography}
+
+\begin{itemize}
+  \item GeeksforGeeks, \textit{LRU Cache Implementation}, \url{https://www.geeksforgeeks.org/lru-cache-implementation/}
+  \item Mohammed Ali Mansour, \textit{pyArchSim Repository}, \url{https://github.com/mohammed0x00/pyArchSim}
+  \item Hawa J. K. Mohammed, \textit{pyArchSim Repository}, \url{https://github.com/hawajkm/pyArchSim}
+  \item ScienceDirect, \textit{Set-Associative Cache}, \url{https://www.sciencedirect.com/topics/computer-science/set-associative-cache}
+  \item Adeorha, \textit{Cache Repository}, \url{https://github.com/adeorha/Cache}
+\end{itemize}
 
 \end{document}
