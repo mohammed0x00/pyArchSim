@@ -42,14 +42,14 @@ A significant contribution of this work is the implementation of a flexible and 
 \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
 
 \section{Introduction}
-The pyArchSim project is a simulation tool developed to model and analyze architectural structures. Its goals include:
+The pyArchSim project \cite{pyarchsim_hawajkm} is a simulation tool developed to model and analyze architectural structures. Its goals include:is a simulation tool developed to model and analyze architectural structures. Its goals include:
 \begin{itemize}
   \item Providing accurate simulations of structural behaviors.
   \item Enabling easy integration with visualization tools.
   \item Facilitating quick prototyping and iterative development.
 \end{itemize}
 
-The tool is implemented using Python and several open-source libraries, making it accessible to a wide range of users in both academic and industry settings.
+The tool\cite{pyarchsim_hawajkm} is implemented using Python and several open-source libraries, making it accessible to a wide range of users in both academic and industry settings.
 
 A key feature of pyArchSim is its modular memory subsystem, which includes a flexible and efficient cache implementation. The cache is designed to support various configurations, such as direct-mapped, set-associative, and fully-associative modes~\cite{sciencedirect_set_associative}. This allows users to experiment with different cache architectures and study their impact on system performance. The cache helps reduce memory access latency by storing frequently accessed data closer to the processor, thus improving overall simulation efficiency. The implementation supports standard cache operations, LRU replacement policy~\cite{gfg_lru_cache}, and easy integration with the processor and memory modules.
 
@@ -88,7 +88,7 @@ Major implementation details include:
 \end{itemize}
 
 \section{Cache Class Documentation}
-A new cache class has been incorporated to improve the performance of simulation computations by temporarily storing frequently accessed data. This class is designed to:
+A new cache class\cite{pyarchsim_mohammed} has been incorporated to improve the performance of simulation computations by temporarily storing frequently accessed data. This class is designed to:
 \begin{itemize}
   \item Enhance retrieval speeds by reducing redundant calculations.
   \item Maintain a balance between memory usage and computational efficiency.
@@ -102,7 +102,7 @@ The cache is implemented as a configurable set-associative cache, supporting dir
   \item \textbf{Cacheline Size:} Number of bytes per cache line.
   \item \textbf{Associativity:} Number of lines per set (1 for direct-mapped, $N$ for $N$-way set associative, all lines for fully-associative).
 \end{itemize}
-Each cache set is implemented as a list of cache lines, and the replacement policy is Least Recently Used (LRU), managed by moving accessed lines to the end of the list.
+Each cache set is implemented as a list of cache lines, and the replacement policy is Least Recently Used (LRU)\cite{gfg_lru_cache}, managed by moving accessed lines to the end of the list.
 
 \subsection{Code Example}
 Below are selected parts of the cache implementation:
